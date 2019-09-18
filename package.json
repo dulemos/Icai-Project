@@ -1,0 +1,18 @@
+{
+  "name": "auth-api-icai",
+  "version": "1.0.0",
+  "description": "auth api of icai project",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm start"
+  },
+  "author": "Icai Members",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "consign": "^0.1.6",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.1",
+    "nodemon": "^1.19.2"
+  }
+}
