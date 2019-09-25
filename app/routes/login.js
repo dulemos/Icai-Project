@@ -5,5 +5,9 @@ module.exports = (app) => {
 
     app.post("/login", (req, res) => {
         app.controllers.login.login(app, req, res);
-    })
+    });
+
+    app.post("/signin", (req, res) => {
+        app.controllers.signin.signinController(req, res, app);
+    });
 }   

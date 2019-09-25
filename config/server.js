@@ -10,6 +10,7 @@ consign({cwd: 'app'})
     .include('controllers')
     .then('models')
     .then('routes')
+    .then('middlewares')
     .into(app)
 
 module.exports = app;
