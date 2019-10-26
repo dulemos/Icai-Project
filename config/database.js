@@ -7,11 +7,10 @@ userModel = ()=>{
     let Schema = mongoose.Schema;
     
     const userSchema = new Schema({
-        user: {
-            usuario: String,
-            email: String, 
-            senha: String
-        }
+        user: String,
+        pass: String, 
+        username: String,
+        type: String
     });
     userSchema.set('autoIndex', false)
     userSchema.set('toJSON', {virtuals: true})

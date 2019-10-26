@@ -10,4 +10,8 @@ module.exports = (app) => {
     app.post("/signin", (req, res) => {
         app.controllers.signin.signinController(req, res, app);
     });
+
+    app.get("/timeline", (req, res) => {
+        app.controllers.timeline.getTimeline(app, req, res);
+    })
 }   
