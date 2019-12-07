@@ -13,15 +13,14 @@ let isValidPassword = (pass) =>{
     return true
 }
 
-let isTokenValid = async (query) => {
-    if(!query.token) return false
-    try{
-        let isValid = jwt.verify(query.token, process.env.SECRET)
-        console.log(isValid)
-        return true
-    }catch(err){
-        return false
-    }
+let isTokenValid = (query, cb) => {
+    jwt.verify(query.token, process.env.SECRET, (err, decoded) => {
+        if (err){
+            cb(err);
+        }else{
+            cb(null, decoded.id);
+        } 
+    })
 }
 
 module.exports = {

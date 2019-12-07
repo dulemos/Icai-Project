@@ -13,5 +13,13 @@ module.exports = (app) => {
 
     app.get("/timeline", (req, res) => {
         app.controllers.timeline.getTimeline(app, req, res);
+    });
+
+    app.get("/allDiscussions", (req, res) => {
+        app.controllers.discussion.getAllDiscussions(app, req, res)
     })
+
+    app.get("/discussion/:id", (req, res) => {
+        app.controllers.discussion.getDiscussion(app, req, res);
+    });
 }   
