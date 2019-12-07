@@ -17,9 +17,21 @@ module.exports = (app) => {
 
     app.get("/allDiscussions", (req, res) => {
         app.controllers.discussion.getAllDiscussions(app, req, res)
-    })
+    });
 
     app.get("/discussion/:id", (req, res) => {
         app.controllers.discussion.getDiscussion(app, req, res);
+    });
+
+    app.get("/search/:user", (req, res) => {
+        app.controllers.user.searchUser(app, req, res);
+    });
+
+    app.get("/user", (req, res) => {
+        app.controllers.user.getUser(app, req, res);
+    });
+
+    app.put("/user", (req, res) => {
+        app.controllers.user.updateUser(app, req, res);
     });
 }   
