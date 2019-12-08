@@ -10,7 +10,7 @@ module.exports.saveUser = (body, cb) => {
     newUser.save((err, data) => {
         if (err) cb(err);
         console.log(data)
-        cb(null, "acho que deu certo.rs")
+        cb(null, "Usuário cadastrado com sucesso.")
     })
 
 }

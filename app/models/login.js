@@ -7,17 +7,20 @@ let authUser = (id, cb) => {
 }
 
 const user = userModel;
-
+    
 module.exports.userLogin = function (email, pass, cb){
-    user.findOne({'user': email}, (err, userData)=>{
-        if(err) cb(null);
-        userData = userData.toJSON()
-        if(pass === userData.pass && pass){
-            authUser(userData._id, (token)=>{
-                cb(token)
-            })
-        }else{
+    user.findOne({'user': email}, (err, data)=>{
+        if(!data || err){
             cb(null);
+        }else{
+            let userData = data.toJSON()
+            if(pass === userData.pass && pass){
+                authUser(userData._id, (token)=>{
+                    cb(token)
+                })
+            }else{
+                cb(null);
+            }
         }
     })
 }
