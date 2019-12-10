@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-userModel = ()=>{
+let userModel = ()=>{
     mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true, useUnifiedTopology: true});
     
     // let db = dbConnection;
@@ -16,5 +16,7 @@ userModel = ()=>{
     userSchema.set('toJSON', {virtuals: true})
     return mongoose.model('users', userSchema)
 }
+
+
 
 module.exports = userModel();

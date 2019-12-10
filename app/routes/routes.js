@@ -15,6 +15,18 @@ module.exports = (app) => {
         app.controllers.timeline.getTimeline(app, req, res);
     });
 
+    app.post("/post", (req, res) => {
+        app.controllers.timeline.newPost(app, req, res);
+    })
+
+    app.get("/post", (req, res) => {
+        app.controllers.timeline.myPosts(app, req, res);
+    })
+
+    app.delete("/post", (req, res) => {
+        app.controllers.timeline.deletePost(app, req, res);
+    })
+
     app.get("/allDiscussions", (req, res) => {
         app.controllers.discussion.getAllDiscussions(app, req, res)
     });
@@ -23,7 +35,7 @@ module.exports = (app) => {
         app.controllers.discussion.getDiscussion(app, req, res);
     });
 
-    app.get("/search/:user", (req, res) => {
+    app.get("/search", (req, res) => {
         app.controllers.user.searchUser(app, req, res);
     });
 

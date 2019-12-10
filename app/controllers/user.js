@@ -5,8 +5,9 @@ module.exports.searchUser = (app, req, res) => {
                 "error": "Non valid Token"
             })
         } else {
-            if(req.body){
-                res.status('201').json(req.query);
+            if(req.query.user){
+                console.log(req.query.user)
+                app.models.userModel.findUser(req.query.user, userData => { res.status('201').json(userData)})
             }
         }
 
@@ -20,9 +21,15 @@ module.exports.getUser = (app, req, res) => {
                 "error": "Non valid Token"
             })
         } else {
-            if(req.body){
-                res.status('201').json(req.query);
-            }
+            app.models.userModel.findUser(userId, data => {
+                if(data){
+                    res.status('201').json(data);
+                }else {
+                    res.status('500').json({
+                        "error": "something went wrong.."
+                    })
+                }
+            })
         }
 
     });
